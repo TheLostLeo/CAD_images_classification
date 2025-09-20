@@ -74,7 +74,7 @@ venv/
 ENV/
 venv.bak/
 
-# Data, logs, outputs
+# Data, logs, outputs, and ML artifacts
 *.log
 *.out
 *.csv
@@ -82,29 +82,92 @@ venv.bak/
 *.dat
 *.db
 *.sqlite3
-*.h5
+
+# Model files and checkpoints
 *.pth
+*.pt
+*.ckpt
+*.model
 *.pkl
 *.joblib
+*.h5
+*.hdf5
+
+# NumPy arrays
 *.npy
 *.npz
 
-# Images
-*.png
-*.jpg
-*.jpeg
-*.bmp
-*.gif
-*.tif
-*.tiff
+# TensorBoard logs
+runs/
+logs/
+tensorboard/
+
+# MLflow artifacts
+mlruns/
+.mlflow/
+
+# Weights & Biases
+wandb/
+
+# Model training outputs
+checkpoints/
+trained_models/
+saved_models/
+experiments/
+
+# Results and predictions
+results/
+outputs/
+predictions/
+inference_results/
+
+# Images (keeping sample images but excluding large datasets)
+# *.png
+# *.jpg
+# *.jpeg
+# *.bmp
+# *.gif
+# *.tif
+# *.tiff
+
+# Large image datasets (uncomment to exclude)
+data/raw/
+data/processed/large_datasets/
 
 # Medical images
 *.dcm
 *.nii
 *.nii.gz
 
+# DICOM files
+*.dicom
+
 # MacOS
 .DS_Store
 
 # Linux
 *~
+
+# Project-specific data and credentials
+data/
+.kaggle/
+kaggle.json
+
+# Large model files (if you want to exclude them)
+# models/*.pth
+# models/*.pt
+
+# Temporary files
+temp/
+tmp/
+scratch/
+
+# IDE and editor files
+*.swp
+*.swo
+*~
+
+# System files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
