@@ -153,6 +153,9 @@ data/
 .kaggle/
 kaggle.json
 
+# Project documentation (if you want to keep it local)
+PROJECT_SUMMARY.md
+
 # Large model files (if you want to exclude them)
 # models/*.pth
 # models/*.pt
