@@ -13,7 +13,7 @@ import cv2
 from datetime import datetime
 
 # Import our model class
-from train_model import ImprovedCarotidClassifier
+from train_efficientnet_model import ImprovedCarotidClassifier
 
 
 class CarotidInference:
@@ -254,16 +254,6 @@ DETAILED PROBABILITIES:
         report += f"""
 CLINICAL RECOMMENDATION:
 {recommendations[result['predicted_label']]}
-
-IMPORTANT NOTES:
-- This is a computer-aided diagnosis tool for reference only
-- Results should be interpreted by a qualified medical professional
-- Clinical correlation with patient history and other imaging is essential
-- This assessment is based on synthetic training data for demonstration purposes
-
-DISCLAIMER:
-This automated analysis is for educational and research purposes only.
-Always consult with a qualified healthcare provider for medical decisions.
 """
         
         return report
@@ -272,9 +262,9 @@ Always consult with a qualified healthcare provider for medical decisions.
 def main():
     """Main inference function."""
     parser = argparse.ArgumentParser(description='Carotid Stenosis Inference')
-    parser.add_argument('--model', type=str, default='models/carotid_classifier_best.pth',
+    parser.add_argument('--model', type=str, default='models/enhanced_carotid_classifier_best.pth',
                        help='Path to trained model')
-    parser.add_argument('--image', type=str, required=True,
+    parser.add_argument('--image', type=str,
                        help='Path to input image')
     parser.add_argument('--batch', type=str, help='Path to directory with multiple images')
     parser.add_argument('--output', type=str, help='Output directory for results')
@@ -282,6 +272,12 @@ def main():
     parser.add_argument('--report', action='store_true', help='Generate clinical report')
     
     args = parser.parse_args()
+    
+    # Check that either image or batch is provided
+    if not args.image and not args.batch:
+        print("Error: Must provide either --image or --batch")
+        parser.print_help()
+        return
     
     # Check if model exists
     if not Path(args.model).exists():
