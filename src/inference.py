@@ -146,7 +146,7 @@ class CarotidInference:
             try:
                 result, _ = self.predict_single(image_path, return_probs)
                 results.append(result)
-                print(f"✓ Processed: {Path(image_path).name}")
+                print(f"[SUCCESS] Processed: {Path(image_path).name}")
             except Exception as e:
                 print(f"✗ Error processing {image_path}: {e}")
                 results.append({

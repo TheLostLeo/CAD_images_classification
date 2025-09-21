@@ -330,7 +330,7 @@ class EnhancedTrainer:
                 best_val_f1 = val_f1
                 best_model_state = self.model.state_dict().copy()
                 patience_counter = 0
-                print(f"✓ New best validation F1: {best_val_f1:.4f}")
+                print(f"[NEW BEST] New best validation F1: {best_val_f1:.4f}")
             else:
                 patience_counter += 1
                 
@@ -520,7 +520,7 @@ def get_enhanced_transforms():
 
 def main():
     """Enhanced main training function."""
-    print("🚀 Enhanced Carotid Artery Stenosis Classification Training!")
+    print("Enhanced Carotid Artery Stenosis Classification Training!")
     print("="*70)
     
     # Set device
@@ -584,18 +584,18 @@ def main():
     # Enhanced evaluation
     eval_results = trainer.evaluate()
     
-    print(f"\n{'🎉 ENHANCED TRAINING COMPLETED! 🎉':^70}")
+    print(f"\n{'ENHANCED TRAINING COMPLETED!':^70}")
     print("="*70)
     print(f"Final Test Accuracy: {eval_results['test_accuracy']:.4f}")
     print(f"Final Test F1-Score: {eval_results['test_f1_score']:.4f}")
     print("\nKey Improvements:")
-    print("✅ EfficientNet-B3 architecture (better for medical images)")
-    print("✅ Enhanced data augmentation")
-    print("✅ Class-balanced training")
-    print("✅ Mixed precision training") 
-    print("✅ OneCycle learning rate scheduling")
-    print("✅ Early stopping with F1-score monitoring")
-    print("✅ Gradient clipping for stability")
+    print("- EfficientNet-B3 architecture (better for medical images)")
+    print("- Enhanced data augmentation")
+    print("- Class-balanced training")
+    print("- Mixed precision training") 
+    print("- OneCycle learning rate scheduling")
+    print("- Early stopping with F1-score monitoring")
+    print("- Gradient clipping for stability")
     print("\nCheck 'results' directory for detailed analysis!")
 
 
